@@ -1,0 +1,3 @@
+massive>=2.8.0
+yfinance>=1.4.1
+panda>=0.3.1
