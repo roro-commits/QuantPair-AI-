@@ -3,9 +3,9 @@ name = "quantpairs"
 version = "0.1.0"
 description = "Default template for PDM package"
 authors = [
-    {name = "Rotimi", email = "olarotimi@protonmail.com"},
+    {name = "Rotimi",email = "olarotimi@protonmail.com"},
 ]
-dependencies = ["massive>=2.8.0", "yfinance>=1.4.1", "panda>=0.3.1", "sklearn>=0.0.post12", "scikit-learn>=1.9.0"]
+dependencies = ["massive>=2.8.0", "yfinance>=1.4.1", "panda>=0.3.1", "scikit-learn>=1.9.0"]
 
 requires-python = "==3.14.*"
 readme = "README.md"
