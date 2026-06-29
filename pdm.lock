@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:0d06a63715d0a0d64057c69b0252cf63037cc840d008647f527997cb121e6c93"
+content_hash = "sha256:8f00bb59530b9f864f16f5d06a2e114c8790cdbc9d7cb16a0bae4037ba460dcc"
 
 [[metadata.targets]]
 requires_python = "==3.14.*"
@@ -470,6 +470,20 @@ files = [
 ]
 
 [[package]]
+name = "patsy"
+version = "1.0.2"
+requires_python = ">=3.6"
+summary = "A Python package for describing statistical models and for building design matrices."
+groups = ["default"]
+dependencies = [
+    "numpy>=1.4",
+]
+files = [
+    {file = "patsy-1.0.2-py2.py3-none-any.whl", hash = "sha256:37bfddbc58fcf0362febb5f54f10743f8b21dd2aa73dec7e7ef59d1b02ae668a"},
+    {file = "patsy-1.0.2.tar.gz", hash = "sha256:cdc995455f6233e90e22de72c37fcadb344e7586fb83f06696f54d92f8ce74c0"},
+]
+
+[[package]]
 name = "peewee"
 version = "4.1.0"
 summary = "a little orm"
@@ -741,6 +755,29 @@ groups = ["default"]
 files = [
     {file = "soupsieve-2.8.4-py3-none-any.whl", hash = "sha256:e7e6b0769c8f51ed59acab6e994b00621096cfb1c640a7509295987388fbaf65"},
     {file = "soupsieve-2.8.4.tar.gz", hash = "sha256:e121fd02e975c695e4e9e8774a5ee35d74714b59307868dcc5319ad2d9e3328e"},
+]
+
+[[package]]
+name = "statsmodels"
+version = "0.14.6"
+requires_python = ">=3.9"
+summary = "Statistical computations and models for Python"
+groups = ["default"]
+dependencies = [
+    "numpy<3,>=1.22.3",
+    "packaging>=21.3",
+    "pandas!=2.1.0,>=1.4",
+    "patsy>=0.5.6",
+    "scipy!=1.9.2,>=1.8",
+]
+files = [
+    {file = "statsmodels-0.14.6-cp314-cp314-macosx_10_15_x86_64.whl", hash = "sha256:00781869991f8f02ad3610da6627fd26ebe262210287beb59761982a8fa88cae"},
+    {file = "statsmodels-0.14.6-cp314-cp314-macosx_11_0_arm64.whl", hash = "sha256:73f305fbf31607b35ce919fae636ab8b80d175328ed38fdc6f354e813b86ee37"},
+    {file = "statsmodels-0.14.6-cp314-cp314-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:e443e7077a6e2d3faeea72f5a92c9f12c63722686eb80bb40a0f04e4a7e267ad"},
+    {file = "statsmodels-0.14.6-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:3414e40c073d725007a6603a18247ab7af3467e1af4a5e5a24e4c27bc26673b4"},
+    {file = "statsmodels-0.14.6-cp314-cp314-musllinux_1_2_x86_64.whl", hash = "sha256:a518d3f9889ef920116f9fa56d0338069e110f823926356946dae83bc9e33e19"},
+    {file = "statsmodels-0.14.6-cp314-cp314-win_amd64.whl", hash = "sha256:151b73e29f01fe619dbce7f66d61a356e9d1fe5e906529b78807df9189c37721"},
+    {file = "statsmodels-0.14.6.tar.gz", hash = "sha256:4d17873d3e607d398b85126cd4ed7aad89e4e9d89fc744cdab1af3189a996c2a"},
 ]
 
 [[package]]
