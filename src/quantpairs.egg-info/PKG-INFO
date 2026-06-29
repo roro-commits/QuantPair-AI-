@@ -11,7 +11,6 @@ Requires-Dist: yfinance>=1.4.1
 Requires-Dist: panda>=0.3.1
 Requires-Dist: scikit-learn>=1.9.0
 Requires-Dist: seaborn>=0.13.2
-Requires-Dist: statsmodels>=0.14.6
 
 # QuantPair-AI-
 Pair trading strategy on S&amp;P 500 technology stocks using 8 years of market data. Identifies cointegrated pairs, designs trading strategy, and explores sentiment analysis and web deployment.

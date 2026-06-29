@@ -1,23 +1,5 @@
 ## Changelog
 
-### v0.4.0 — 29.06.2026
-- Added cointegration.py (reusable analysis library)
-  - Pure operators: adf_pvalue, coint_pvalue, hedge_ratio, compute_spread, zscore, half_life
-  - Engle-Granger via statsmodels; data in -> data out (no plots, no I/O)
-- Added cointegration_analysis.py (Phase 3 script)
-  - Composes cointegration.py; loads master + pair_shortlist
-  - Tests pairs both directions, keeps lower p-value + winning direction
-  - Two gates: p < 0.05 and half-life <= 126d
-  - Results table + locked pairs -> CSV (cointegration_output/)
-  - TOP_N knob to scale top-N -> all pairs
-  - Locked pair (full-window screen, provisional): QCOM/AMD
-- Added statsmodels dependency to pdm
-- Fixed
-  - Benchmarks (GSPC/VIX) leaking into pair universe -> filtered in main
-  - test_pair / main tangle - moved loop + I/O back to main
-- # TODO - refit beta + spread stats on train window only (avoid lookahead)
-- # TODO - z-score entry/exit signals -> ML classifier features
-
 ### v0.3.0 — 28.06.2026
 - Added eda.py (reusable analysis library)
   - Pure operators: select, mean returns, volatility, correlation, rank pairs, beta, rolling correlation
@@ -30,6 +12,8 @@
 - Fixed
   - strip_prefix renamed index instead of columns
   - Date-is-index gotcha in add_calendar
+- # TODO - Engle–Granger cointegration on pair_shortlist (Phase 3)
+- # TODO - lock final pairs from cointegration, not correlation
 
 ### v0.2.0 - 28.06.2026
 - Added to dataAPI.py
