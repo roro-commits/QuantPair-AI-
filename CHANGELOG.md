@@ -1,10 +1,10 @@
 ## Changelog
 
 ## Major TODO
-- Add
+### Add
  - A logging system / replace print statements where not needed
  - A ruff linter
-- Change
+### Change
  - Refactor code to linter standard
                                     
 ### v0.5.0 — 05.07.2026
