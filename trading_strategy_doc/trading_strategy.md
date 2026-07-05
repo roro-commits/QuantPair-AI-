@@ -25,3 +25,5 @@
 8. **Exit:** sell/cover when the standard deviation of the difference in the ratio is **less than 0.5** (in the case of a short) or **greater than −0.5** (in the case of a long).
 
 This is the system for unilateral pairs trading and will be represented as Python code.
+
+![flowchart diagram](http://url/to/img.png)
