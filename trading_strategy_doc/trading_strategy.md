@@ -26,4 +26,4 @@
 
 This is the system for unilateral pairs trading and will be represented as Python code.
 
-![flowchart diagram](http://url/to/img.png)
+![flowchart diagram](https://github.com/roro-commits/QuantPair-AI-/blob/trading-strategy/trading_strategy_doc/unilateral_pairs_code_flowchart.png)
