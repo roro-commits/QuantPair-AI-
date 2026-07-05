@@ -6,6 +6,7 @@
  - A ruff linter
 ### Change
  - Refactor code to linter standard
+ - Remove Hardcoded paths 
                                     
 ### v0.5.0 — 05.07.2026
 
