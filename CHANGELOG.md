@@ -1,5 +1,24 @@
 ## Changelog
 
+## Major TODO
+- Add
+ - A logging system / replace print statements where not needed
+ - A ruff linter
+- Change
+ - Refactor code to linter standard
+                                    
+### v0.5.0 — 05.07.2026
+
+- Added unilateral_pairs_trading_system.md (strategy spec)
+    - Abstracted from Trade Like a Hedge Fund (Altucher, 2004)
+    - 8 rules: P1/P2 ratio -> MA20 -> diff -> z-score -> entry (|z| > 1.5 + 2% P1 move) -> exit (|z| < 0.5)
+    - Notation generalised to P1/P2 (QQQ/SPY as concrete instance)
+- Added unilateral_pairs_flowchart.svg (black & white, code-ready)
+    - Compute chain + position-state branch (entry if/elif/else vs exit if/elif/else)
+    - Embedded in the md via relative image link
+
+- ### TODO - implementation of the system
+
 ### v0.4.0 — 29.06.2026
 - Added cointegration.py (reusable analysis library)
   - Pure operators: adf_pvalue, coint_pvalue, hedge_ratio, compute_spread, zscore, half_life
@@ -15,8 +34,8 @@
 - Fixed
   - Benchmarks (GSPC/VIX) leaking into pair universe -> filtered in main
   - test_pair / main tangle - moved loop + I/O back to main
-- # TODO - refit beta + spread stats on train window only (avoid lookahead)
-- # TODO - z-score entry/exit signals -> ML classifier features
+- ### TODO - refit beta + spread stats on train window only (avoid lookahead)
+- ### TODO - z-score entry/exit signals -> ML classifier features
 
 ### v0.3.0 — 28.06.2026
 - Added eda.py (reusable analysis library)
@@ -48,5 +67,5 @@
   - Added PDM as package manager
 - Added a re-usable data & ml module
   - various functionality
-  - # TODO - split data & ml functionality
-  - # TODO - abstract the model fit functions 
+  - ### TODO - split data & ml functionality
+  - ### TODO - abstract the model fit functions 
