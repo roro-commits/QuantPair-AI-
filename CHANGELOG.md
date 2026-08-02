@@ -7,6 +7,64 @@
 ### Change
  - Refactor code to linter standard
  - Remove Hardcoded paths 
+
+### v0.9.0 — 02.08.2026
+- Added sentiment.py (reusable sentiment library) -> src/quantpairs/reusableModule/sentiment/
+  - Pure operators: score_headline, score_headlines, sentiment_label, summarise_ticker
+  - VADER compound scores; conventional thresholds (+-0.05)
+  - Display-only: never imported by features/, model/, strategy/, or lean_app/ (stated in module docstring)
+- Added sentiment_analysis.py (orchestration) -> code/features/
+  - Google News RSS per ticker (free, no key, stdlib fetch); satisfies brief's X-or-Google-News requirement
+  - Outputs: sentiment.csv (per-ticker summary) + headlines_scored.csv (audit trail) -> sentiment_output/
+  - First run: 9/9 tickers, 20 headlines each; QCOM only negative (leg of locked pair -> dashboard talking point)
+- Added vaderSentiment dependency to pdm
+- # TODO - FastAPI dashboard: read-only endpoints over cointegration/strategy/model/sentiment outputs
+- # TODO - Docker containerization: streamline the build (one image, reproducible env; also the Cloud Run deploy unit)
+
+### v0.8.0 — 02.08.2026
+- Added build_features.py (shared feature library) -> src/quantpairs/reusableModule/features/
+  - build_features: 6 features computable at close t (z, z_change_1d, z_change_5d, p1_change, vol_p1, vol_p2)
+  - build_labels: Option A target - |z| shrinks (revert) / grows (diverge) / flat over k=5d, dead zone 0.25
+  - Contract: build_features runs in training AND LEAN; build_labels training-only (looks ahead)
+- Added train_model.py (training script) -> code/features/
+  - Train 2018-2023 (1,460 rows) / test 2024-2025 (495 rows), k-day purge at boundary
+  - Baselines: always-revert 41.2%; one-rule (|z| > 1) 66.9%
+  - Models: logistic 40.0%; forest / gboost / ensemble 65.7% -> model.pkl
+- Finding: model ties the one-rule baseline - features carry no information beyond |z|;
+  classifier rediscovered the classical threshold rule (rules-as-features validated, ceiling exposed)
+- # TODO - v2: binary labels (drop flat, f1 0.05); context features orthogonal to |z|
+  (rolling correlation, VIX, rolling half-life) - deferred, vertical slice first
+
+### v0.7.0 — 02.08.2026
+- Ran trading_strategy.py backtest on locked pair (P1=AMD by volatility, P2=QCOM)
+  - diff ADF p = 0.0000, half-life 8.7d -> signal construction sound
+  - Full: -72.5% cumulative, Sharpe -0.26, max drawdown -81.6%, 112 trades, 39% days in market
+  - Loses in both sub-periods -> systematic, not regime luck
+- Diagnosis (negative result, mechanistic causes)
+  - Unilateral shorts against AMD's 8-year uptrend + no stop-loss -> -81% drawdown
+  - 2% move filter calibrated to QQQ (~1% vol); ~0.6 sigma on AMD -> vol-blind, fires routinely
+- Note: train/test labels renamed sub-period analysis - strategy fits no parameters, nothing is trained
+- # TODO - split P&L by position side (confirm shorts drive the loss)
+- # TODO - vol-scaled entry filter (tuning -> would reintroduce a real train boundary)
+
+### v0.6.0 — 02.08.2026
+- Added strategy.py (reusable strategy library) -> src/quantpairs/reusableModule/strategy/
+  - Pure operators, steps 1-8 of the Altucher system: price_ratio, moving_average, ratio_difference,
+    rolling_zscore, daily_change, generate_positions, strategy_returns
+  - Aggregates: sharpe_ratio, max_drawdown, trade_count
+  - generate_positions = the one stateful fold (flat | long | short), still pure (Series in -> Series out)
+- Added trading_strategy.py (Phase 4 script) -> code/features/
+  - Composes strategy.py; reuses eda (select_columns, volatility, cumulative_returns)
+    + cointegration (adf_pvalue, half_life as sanity checks)
+  - assign_legs: P1 = more volatile leg via eda.volatility (not hardcoded)
+  - Position at close t earns return t+1 (no same-day lookahead)
+  - Outputs: signals.csv + performance.csv -> strategy_output/
+- Notes
+  - Rolling z-score = no fitted params; did NOT reuse cointegration.zscore (full-sample = lookahead)
+  - Imports reference existing filename cointergration (typo) -> update after git mv
+- # TODO - verify step 5 ("prior 20 days"): rolling(20) incl. today vs shift(1) variant
+- # TODO - stop-loss / time exit (brief requires it)
+- # TODO - rename cointergration.py -> cointegration.py; underscore cointergration-analysis.py
                                     
 ### v0.5.0 — 05.07.2026
 

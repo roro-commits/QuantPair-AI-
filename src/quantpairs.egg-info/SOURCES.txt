@@ -9,3 +9,5 @@ src/quantpairs/reusableModule/__init__.py
 src/quantpairs/reusableModule/reusable_module.py
 src/quantpairs/reusableModule/cointegration/cointergration.py
 src/quantpairs/reusableModule/eda/eda.py
+src/quantpairs/reusableModule/features/build_features.py
+src/quantpairs/reusableModule/strategy/strategy.py
