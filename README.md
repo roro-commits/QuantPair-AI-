@@ -29,7 +29,7 @@ code/                            orchestration scripts (I/O, composition, CSV ou
                                  train_model, sentiment_analysis, full_universe
  
 api/main.py                      read-only FastAPI dashboard over the CSV outputs
-*_output/                        committed results per phase (tables, model.pkl)
+*_output/                        committed results per phase (tables, model_v1.pkl)
 ```
  
 Operators never do I/O or plotting. Orchestration scripts compose them and write CSVs. The `features/` module is the single source of truth for feature engineering across training and any future live inference (LEAN).
@@ -37,6 +37,9 @@ Operators never do I/O or plotting. Orchestration scripts compose them and write
 ## Quickstart
  
 ```bash
+pip install pdm   # once
+pip install pdm   # once
+pip install pdm   # once
 pdm install
 pdm run code/data/dataAPI.py                      # pull data, build master
 pdm run code/features/data_analysis.py            # Phase 2 EDA
