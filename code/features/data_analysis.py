@@ -1,23 +1,24 @@
 """Phase 2 EDA — composes eda.py operators, saves tables (CSV) and plots (PNG)."""
 import math
 import os
+
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
 from quantpairs.reusableModule.eda.eda import (
-    select_columns,
-    mean_returns,
-    volatility,
     annualise_volatility,
-    cumulative_returns,
-    correlation_matrix,
-    rank_pairs,
     beta,
+    correlation_matrix,
+    cumulative_returns,
+    mean_returns,
+    rank_pairs,
     rolling_correlation,
+    select_columns,
+    volatility,
 )
 
-DATA = "/home/rotimi/_developement/QuantPair-AI-/data_files/masterData"
+DATA = "data_files/masterData"
 FIGS = "eda_output/figures"
 TABLES = "eda_output/tables"
 MARKET = "Return_SP500"

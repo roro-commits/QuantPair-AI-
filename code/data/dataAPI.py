@@ -1,12 +1,14 @@
 import os
-import yfinance as yf
+
 import pandas as pd
+import yfinance as yf
+
 from quantpairs.reusableModule.reusable_module import (
-    drop_columns,
-    rename_column,
-    extract_target,
     combine_columns,
+    drop_columns,
     drop_missing,
+    extract_target,
+    rename_column,
 )
 
 STOCKS = [

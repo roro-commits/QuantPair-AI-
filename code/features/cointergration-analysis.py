@@ -1,19 +1,20 @@
 """Phase 3 — cointegration testing on the EDA shortlist. Composes cointegration.py operators."""
 
 from typing import Dict
+
 import pandas as pd
 
-from quantpairs.reusableModule.eda.eda import select_columns
 from quantpairs.reusableModule.cointegration.cointergration import (
-    coint_pvalue,
-    hedge_ratio,
-    compute_spread,
     adf_pvalue,
+    coint_pvalue,
+    compute_spread,
     half_life,
+    hedge_ratio,
 )
+from quantpairs.reusableModule.eda.eda import select_columns
 
-DATA = "/home/rotimi/_developement/QuantPair-AI-/data_files/masterData"
-SHORT_LIST = "/home/rotimi/_developement/QuantPair-AI-/eda_output/tables"
+DATA = "data_files/masterData"
+SHORT_LIST = "eda_output/tables"
 TABLES = "cointegration_output"
 TOP_N = 36  # shortlist pairs to test (head(N) automation knob)
 ALPHA = 0.05  # cointegration significance threshold

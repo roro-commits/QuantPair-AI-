@@ -2,26 +2,26 @@
 
 import pandas as pd
 
+from quantpairs.reusableModule.cointegration.cointergration import adf_pvalue, half_life
 from quantpairs.reusableModule.eda.eda import (
+    cumulative_returns,
     select_columns,
     volatility,
-    cumulative_returns,
 )
-from quantpairs.reusableModule.cointegration.cointergration import adf_pvalue, half_life
 from quantpairs.reusableModule.strategy.strategy import (
-    price_ratio,
-    moving_average,
-    ratio_difference,
-    rolling_zscore,
     daily_change,
     generate_positions,
-    strategy_returns,
-    sharpe_ratio,
     max_drawdown,
+    moving_average,
+    price_ratio,
+    ratio_difference,
+    rolling_zscore,
+    sharpe_ratio,
+    strategy_returns,
     trade_count,
 )
 
-DATA = "/home/rotimi/_developement/QuantPair-AI-/data_files/masterData"
+DATA = "data_files/masterData"
 TABLES = "strategy_output"
 PAIR = ("QCOM", "AMD")  # locked pair from Phase 3 (provisional)
 WINDOW = 20  # MA + rolling std window (Altucher)
