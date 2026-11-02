@@ -38,9 +38,6 @@ Operators never do I/O or plotting. Orchestration scripts compose them and write
  
 ```bash
 pip install pdm   # once
-pip install pdm   # once
-pip install pdm   # once
-pdm install
 pdm run code/data/dataAPI.py                      # pull data, build master
 pdm run code/features/data_analysis.py            # Phase 2 EDA
 pdm run code/features/cointergration-analysis.py  # Phase 3 screen
