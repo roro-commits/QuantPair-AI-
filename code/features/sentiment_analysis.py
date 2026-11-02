@@ -5,7 +5,10 @@ import xml.etree.ElementTree as ET
 
 import pandas as pd
 
-from quantpairs.reusableModule.sentiment.sentiment import score_headlines, summarise_ticker
+from quantpairs.reusableModule.sentiment.sentiment import (
+    score_headlines,
+    summarise_ticker,
+)
 
 OUT = "sentiment_output"
 TICKERS = ["MSFT", "AAPL", "NVDA", "AVGO", "ORCL", "CRM", "ADBE", "AMD", "QCOM"]

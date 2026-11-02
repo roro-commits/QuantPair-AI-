@@ -3,19 +3,29 @@
 import pickle
 
 import pandas as pd
-from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier, VotingClassifier
+from sklearn.ensemble import (
+    GradientBoostingClassifier,
+    RandomForestClassifier,
+    VotingClassifier,
+)
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 
 from quantpairs.reusableModule.eda.eda import select_columns
-from quantpairs.reusableModule.features.build_features import build_features, build_labels
+from quantpairs.reusableModule.features.build_features import (
+    build_features,
+    build_labels,
+)
 from quantpairs.reusableModule.strategy.strategy import (
-    price_ratio, moving_average, ratio_difference, rolling_zscore,
+    moving_average,
+    price_ratio,
+    ratio_difference,
+    rolling_zscore,
 )
 
-DATA = "/home/rotimi/_developement/QuantPair-AI-/data_files/masterData"
+DATA = "data_files/masterData"
 OUT = "model_output"
 PAIR = ("QCOM", "AMD")   # locked pair (provisional)
 WINDOW = 20
